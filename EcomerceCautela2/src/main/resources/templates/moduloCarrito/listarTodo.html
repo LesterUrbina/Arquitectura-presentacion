@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Listar carritos- Administracion</title>
+</head>
+<body>
+	<div align="center">
+		<h1>carritos</h1>
+		<a th:href="@{/carritos/nuevo}">create nuevo carrito</a><br />
+		<br />
+		 	<table border="1" cellpading="10">
+			<thead>
+				<tr>
+				<th>Id</th>
+				<th>Cantidad</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="carritos :${listaCarritos}">
+				<td th:text= "${carritos.idCarrito}">Id</td>
+				<td th:text= "${carritos.cantidad}">Cantidad</td>
+				<td>
+				<a th:href="@{/carritos/actualizar/{id}(id=${carritos.idCarrito})}">Actualizar</a>
+				&nbsp;&nbsp;&nbsp;
+				<a th:href="@{/carritos/eliminar/{id}(id=${carritos.idCarrito})}">Eliminar</a>
+				</td>
+				</tr>
+			</tbody>
+					</table>
+	
+
+		
+	</div>
+
+</body>
+</html>
